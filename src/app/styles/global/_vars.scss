@@ -1,0 +1,27 @@
+:root {
+  //color
+  --main-font-color: rgba(0, 0, 0, 1);
+  --secondary-font-color: rgba(78, 48, 0, 1);
+  --gray-font-color: rgba(115, 115, 115, 1);
+  --button-font-color: rgba(255, 255, 255, 1);
+
+  --status-color-active: rgba(128, 187, 0, 1);
+  --status-color-offline: rgba(236, 89, 55, 1);
+
+  --green-button-color: rgba(76, 175, 80, 1);
+  --dark-gray-button-color: rgba(102, 102, 102, 1);
+  --gray-button-color: rgba(115, 115, 115, 1);
+  --light-gray-button-color: rgba(196, 196, 196, 1);
+
+  --border-color: rgba(233, 233, 233, 1);
+
+  --box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.16);
+
+  //font-variables
+  --extra-big-font-size: 32px;
+  --big-font-size: 30px;
+  --normal-font-size: 25px;
+  --button-font-size: 24px;
+  --small-fonr-size: 20px;
+  --extra-small-font-size: 16px;
+}
