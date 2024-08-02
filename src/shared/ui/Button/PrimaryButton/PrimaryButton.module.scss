@@ -1,0 +1,55 @@
+.button {
+  height: 5.2rem;
+  width: 27.3rem;
+  padding: 1.662rem 7.5rem;
+  border-radius: 0.5rem;
+  color: var(--button-font-color);
+  font-size: var(--button-font-size);
+  font-family: "Roboto";
+  text-wrap: nowrap;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--box-shadow);
+
+  &_green {
+    background-color: var(--green-button-color);
+    border: 0.2rem solid var(--green-button-color);
+
+    @media(hover: hover) {
+      &:hover {
+        background-color: transparent;
+        cursor: pointer;
+        color: var(--green-button-color);
+      }
+    }
+
+    @media(hover: none) {
+      &:active {
+        background-color: transparent;
+        color: var(--green-button-color);
+      }
+    }
+  }
+
+  &_gray {
+    background-color: var(--gray-button-color);
+    border: 0.2rem solid var(--gray-button-color);
+
+    @media(hover: hover) {
+      &:hover {
+        background-color: transparent;
+        cursor: pointer;
+        color: var(--gray-button-color);
+      }
+    }
+
+    @media(hover: none) {
+      &:active {
+        background-color: transparent;
+        color: var(--gray-button-color);
+      }
+    }
+  }
+}

@@ -45,8 +45,8 @@ export function buildLoaders(options: BuildOptions): ModuleOptions['rules'] {
   }
 
   const assetsLoader = { 
-    test: /\.(png|jpg|jpeg|gif)$/i,
-    type: 'asset/resource',  
+    test: /\.(png|jpg|jpeg|gif|webp)$/i,
+    type: 'asset/resource',
   }
 
   const fontsLoader = {

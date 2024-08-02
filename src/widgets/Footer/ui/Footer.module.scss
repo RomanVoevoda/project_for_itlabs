@@ -1,0 +1,12 @@
+.footer {
+  display: flex;
+  align-items: baseline;
+  width: 100%;
+  color: var(--secondary-font-color);
+
+  &__text {
+    font-size: var(--big-font-size);
+    font-family: "OpenSansBold";
+    padding-right: 21px;
+  }
+}
