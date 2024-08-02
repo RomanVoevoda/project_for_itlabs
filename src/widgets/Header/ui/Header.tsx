@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import classes from './Header.module.scss';
-import { Button } from '@/shared/ui';
+import { Button, Modal } from '@/shared/ui';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,6 +21,12 @@ const Header: FC = () => {
       </Button>
 
       <div className={classes.header__container}></div>
+
+      {isModalOpen &&
+        <Modal>
+          Модалка открыта
+        </Modal>
+      }
     </header>
   );
 };

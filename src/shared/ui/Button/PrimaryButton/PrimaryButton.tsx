@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ButtonProps } from '../types';
 import classes from './PrimaryButton.module.scss';
 
-const PrimaryButton: FC<ButtonProps> = ({children, color}) => {
+const PrimaryButton: FC<ButtonProps> = ({children, color, onClick}) => {
   return (
     <button className={
       color === 'gray'
@@ -18,7 +18,9 @@ const PrimaryButton: FC<ButtonProps> = ({children, color}) => {
       ' '
       +
       classes.button_green
-    }>
+    }
+    onClick={onClick}
+    >
       {children}
     </button>
   )

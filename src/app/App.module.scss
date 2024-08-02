@@ -4,6 +4,8 @@
   align-items: center;
   overflow-x: hidden;
   position: relative;
+  min-height: 100dvh;
+  min-width: 100%;
   padding: 2.4rem 5rem 4.7rem 5rem;
 
   color: var(--main-font-color);
