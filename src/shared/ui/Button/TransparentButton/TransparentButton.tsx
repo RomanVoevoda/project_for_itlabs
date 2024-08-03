@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { ButtonProps } from '../types';
 import classes from './TransparentButton.module.scss';
 
-const TransparentButton: FC<ButtonProps> = ({children, onClick, active}) => {
+const TransparentButton: FC<Omit<ButtonProps, 'type'>> = ({children, onClick, active}) => {
   return (
     active
     ?

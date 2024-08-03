@@ -1,6 +1,6 @@
 import { FC, useState } from 'react';
 import classes from './Header.module.scss';
-import { Button, Modal } from '@/shared/ui';
+import { Button, Input, Modal } from '@/shared/ui';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -12,6 +12,14 @@ const Header: FC = () => {
         alt='Агроном Сад'
         className={classes.header__image}
       />
+
+      <div className={classes.header__input_container}>
+        <Input 
+          type='text' 
+          placeholder='Поиск по имени' 
+          size='normal'
+        />
+      </div>
 
       <Button 
         type='primary' 

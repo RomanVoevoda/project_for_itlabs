@@ -3,11 +3,7 @@ import { ButtonProps } from './types';
 import PrimaryButton from './PrimaryButton/PrimaryButton';
 import TransparentButton from './TransparentButton/TransparentButton';
 
-interface Props extends ButtonProps{
-  type: "primary" | "transparent";
-}
-
-const Button: FC<Props> = ({type, onClick, children, color, active}) => {
+const Button: FC<ButtonProps> = ({type, onClick, children, color, active}) => {
   switch (type) {
     case "primary":
       return <PrimaryButton children={children} onClick={onClick} color={color}/>;

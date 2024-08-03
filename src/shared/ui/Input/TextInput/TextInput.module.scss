@@ -1,0 +1,24 @@
+.input {
+  display: flex;
+  align-items: center;
+  height: 2.6rem;
+  box-shadow: var(--box-shadow);
+  border: none;
+  border-radius: 0.2rem;
+  font-family: "OpenSansRegular";
+  font-size: var(--big-font-size);
+  text-indent: 0.95rem;
+
+  &_large {
+    width: 25.1rem;
+  }
+
+  &_normal {
+    width: 19.7rem;
+  }
+
+  &::placeholder {
+    color: var(--gray-font-color);
+    font-size: var(--extra-small-font-size);   
+  }
+}
