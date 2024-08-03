@@ -1,4 +1,5 @@
 export interface CreateVisitorFormProps {
-  onSubmit: () => void;
   closeForm: () => void;
+  formId: string;
+  formFieldsContainerId: string;
 }

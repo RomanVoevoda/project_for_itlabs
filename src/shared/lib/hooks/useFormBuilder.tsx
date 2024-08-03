@@ -6,7 +6,14 @@ import Icon from "@/shared/ui/Icon/Icon";
 
 
 export const useFormBuilder = () => {
-  const props = useRef<FormProps>({ fields: [], buttons: [], icon: null} as FormProps);
+  const props = useRef<FormProps>(
+    { fields: [], 
+      buttons: [], 
+      icon: null, 
+      id: '',
+      fieldsContainerId: '', 
+      onSubmit: () => {}
+    } as FormProps);
 
   const builder = {
     setInput: (type: 'text' | 'checkbox', size?: 'normal' | 'large', max_length?: number, title?: string ) => {
@@ -50,7 +57,7 @@ export const useFormBuilder = () => {
       children: ReactNode, 
       type: "primary" | "transparent", 
       onClick: () => void,  
-      color: 'green' | 'gray',
+      color?: 'green' | 'gray',
       active?: boolean,
       submit?: boolean) => {
 
@@ -75,10 +82,22 @@ export const useFormBuilder = () => {
       return builder;
     },
 
+    setForm: (id: string, fieldsContainerId: string, onSubmit: () => void) => {
+      props.current.id = id;
+      props.current.onSubmit = onSubmit;
+      props.current.fieldsContainerId = fieldsContainerId;
+
+      return builder;
+    },
+
     build: () => <Form {...props.current} />,
     
     clearRefs: () => {
-      props.current = {} as FormProps
+      props.current.fields = [];
+      props.current.buttons = [];
+      props.current.icon = null;
+      props.current.id = '';
+      props.current.onSubmit = () => {};
     }
   }
 

@@ -35,8 +35,9 @@ const Header: FC = () => {
       {isModalOpen &&
         <Modal>
           <CreateVisitorForm 
-            onSubmit={() => ''}
             closeForm={() => setIsModalOpen(false)}
+            formId={'form__create_visitor'}
+            formFieldsContainerId={'form__create_visitor_container'}
           />
         </Modal>
       }
