@@ -10,6 +10,7 @@ const Header: FC = () => {
       <img 
         src='assets/images/logo.webp' 
         alt='Агроном Сад'
+        className={classes.header__image}
       />
 
       <Button 
