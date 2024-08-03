@@ -4,10 +4,14 @@
   align-items: center;
   height: 2.6rem;
   width: 25.1rem;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--input-box-shadow);
   border: none;
   border-radius: 0.2rem;
   font-family: "OpenSansRegular";
   font-size: var(--big-font-size);
   text-indent: 0.95rem;
+
+  @media(hover:hover) {
+    cursor: pointer;
+  }
 }

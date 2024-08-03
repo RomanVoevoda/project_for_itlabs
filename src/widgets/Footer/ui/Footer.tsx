@@ -15,6 +15,7 @@ const Footer: FC = () => {
 
       {buttonsArray.map(button => 
         <Button 
+          key={button}
           type='transparent' 
           onClick={() => {
             setActiveButton(button);

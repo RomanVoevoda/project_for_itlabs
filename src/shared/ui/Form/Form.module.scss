@@ -1,20 +1,39 @@
 .form {
   width: 73.05rem;
   height: 29.05rem;
-  padding: 3.3rem 13.45rem 26.5rem 20.85rem;
+  padding: 3.3rem 13.45rem 2.65rem 20.85rem;
   border-radius: 1rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  background-color: var(--main-background-color);
+  position: relative;
+
+  &__icon_container {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+  }
 
   &__container {
     display: grid;
     grid-template-columns: auto auto;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+    column-gap: 4.4rem;
+
+    & > p {
+      color: var(--secondary-font-color);
+      font-size: var(--extra-big-font-size);
+      font-family: "OpenSansSemiBold";
+    }
   }
 
-  &__text {
-    color: var(--secondary-font-color);
-    font-size: var(--extra-big-font-size);
-    font-family: "OpenSansSemiBold";
+  &__buttons_container {
+    display: grid;
+    grid-template-columns: auto auto;
+    margin-top: 2.2rem;
+    column-gap: 1.7rem;
   }
 }

@@ -2,7 +2,7 @@
   display: flex;
   align-items: center;
   height: 2.6rem;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--input-box-shadow);
   border: none;
   border-radius: 0.2rem;
   font-family: "OpenSansRegular";
@@ -18,6 +18,9 @@
   }
 
   &::placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
     color: var(--gray-font-color);
     font-size: var(--extra-small-font-size);   
   }
