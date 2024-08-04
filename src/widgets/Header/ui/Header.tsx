@@ -1,10 +1,24 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import classes from './Header.module.scss';
 import { Button, Input, Modal } from '@/shared/ui';
 import { CreateUserForm } from '@/features';
+import { useUsersContext } from '@/shared/lib';
+import { filterArray } from '@/shared/lib/helpers/filterArray';
+import { userList } from '@/shared/consts';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [onlineCount, setOnlineCount] = useState(0);
+  const [offlineCount, setOfflineCount] = useState(0);
+  const {renderedUsers} = useUsersContext();
+
+  useEffect(() => {
+    let online = filterArray(userList, 'online', true);
+    let offline = filterArray(userList, 'online', false);
+
+    setOnlineCount(online.length);
+    setOfflineCount(offline.length);
+  }, [renderedUsers]);
 
   return (
     <header className={classes.header}>
@@ -30,7 +44,22 @@ const Header: FC = () => {
         Добавить
       </Button>
 
-      <div className={classes.header__container}></div>
+      <div className={classes.header__container}>
+        <p className={classes.header__text}>
+          Посетители
+        </p>
+        <div className={classes.header__text_container}>
+          <p className={classes.header__text_green}>
+            {onlineCount}
+          </p>
+          <p className={classes.header__text}>
+            /
+          </p>
+          <p className={classes.header__text_red}>
+            {offlineCount}
+          </p>
+        </div>
+      </div>
 
       {isModalOpen &&
         <Modal>
