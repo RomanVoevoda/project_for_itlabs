@@ -1,12 +1,19 @@
-import { FC, Fragment, useState } from 'react';
+import { FC, Fragment, useEffect, useState } from 'react';
 import classes from './Main.module.scss';
 import { mainTableHeaders } from '../consts/mainTableHeaders';
-import { userList } from '@/shared/consts';
-import { defaultUserList } from '../consts/defaultUserList';
 import { StatusSpan } from '@/shared/ui';
+import { userInfo, userList } from '@/shared/consts';
+import { useCountContext } from '@/shared/lib';
 
 const Main: FC = () => {
-  const [users, setUsers] = useState(userList.length > 0 ? userList : defaultUserList);
+  const {count} = useCountContext();
+  
+  const [users, setUsers] = useState<userInfo[]>(userList);
+
+  useEffect(() => {
+    console.log('список отрендерился');
+    setUsers(userList);
+  }, [count])
 
   return (
     <main className={classes.main}>

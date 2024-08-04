@@ -34,7 +34,7 @@ const Header: FC = () => {
 
       {isModalOpen &&
         <Modal>
-          <CreateVisitorForm 
+          <CreateVisitorForm
             closeForm={() => setIsModalOpen(false)}
             formId={'form__create_visitor'}
             formFieldsContainerId={'form__create_visitor_container'}

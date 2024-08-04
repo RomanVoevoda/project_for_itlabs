@@ -1,6 +1,6 @@
 import { ReactNode, useRef } from "react";
-import { FormProps } from "../../ui/Form/types";
-import Form from '../../ui/Form/Form';
+import { FormProps } from "../../../ui/Form/types";
+import Form from '../../../ui/Form/Form';
 import { Button, Input, Select } from "@/shared/ui";
 import Icon from "@/shared/ui/Icon/Icon";
 

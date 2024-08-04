@@ -1,3 +1,6 @@
+import { defaultUserList } from "./defaultUserList";
 import { userInfo } from "./types";
 
-export const userList: userInfo[] = [];
+let savedUsers = localStorage.getItem('users');
+
+export const userList: userInfo[] = savedUsers ? JSON.parse(savedUsers) : defaultUserList;
