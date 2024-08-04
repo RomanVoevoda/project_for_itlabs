@@ -1,0 +1,1 @@
+export type TableTuple = [string, string, string, string, string];
