@@ -22,7 +22,7 @@ export const useSearchUsers = (
 
           break;
 
-        case 'Отсутсвующим':
+        case 'Отсутствующим':
           const offline = filterArray(arr, 'online', false);
 
           if(filterValue.length > 0) {

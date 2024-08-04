@@ -18,7 +18,20 @@ const CreateUserForm: FC<CreateUserFormProps> = ({closeForm, formId, formFieldsC
     .setForm(formId, formFieldsContainerId, () => {
       closeForm()
       let user = createUser(formFieldsContainerId);
-      setRenderedUsers([...renderedUsers, user]);
+
+      switch(localStorage.getItem('filter')) {
+        case 'Присутствующим':
+          if(user.online) setRenderedUsers([...renderedUsers, user]);
+                    
+          break;
+        case 'Отсутствующим':
+          if(!user.online) setRenderedUsers([...renderedUsers, user]);
+                      
+          break;
+        default:
+          setRenderedUsers([...renderedUsers, user]);
+      }
+     
       console.log(userList)
     })
   
