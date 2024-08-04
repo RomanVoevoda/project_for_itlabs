@@ -1,0 +1,14 @@
+.span {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+
+  &_red {
+    background-color: var(--status-color-offline);
+  }
+
+  &_green {
+    background-color: var(--status-color-active);
+  }
+}

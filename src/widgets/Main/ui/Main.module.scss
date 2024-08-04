@@ -53,6 +53,9 @@
       justify-self: flex-end;
       text-align: end;
       padding-right: 2.8rem;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-start;
     }
   }
 }
