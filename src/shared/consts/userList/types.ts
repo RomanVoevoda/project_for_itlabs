@@ -3,4 +3,5 @@ export interface userInfo {
   company: string;
   group: string;
   online: boolean;
+  filterOff?: undefined;
 }

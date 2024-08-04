@@ -5,7 +5,7 @@ import { createVisitor } from '../lib/helpers/createVisitor';
 import { userList } from '@/shared/consts';
 
 const CreateVisitorForm: FC<CreateVisitorFormProps> = ({closeForm, formId, formFieldsContainerId}) => {
-  const {count, setCount} = useCountContext();
+  const {renderedUsers, setRenderedUsers} = useCountContext();
 
   const builder = useFormBuilder()
     .setInput('text', 'large', 20, 'ФИО')
@@ -18,7 +18,7 @@ const CreateVisitorForm: FC<CreateVisitorFormProps> = ({closeForm, formId, formF
     .setForm(formId, formFieldsContainerId, () => {
       closeForm()
       createVisitor(formFieldsContainerId);
-      setCount(count + 1)
+      setRenderedUsers(renderedUsers)
       console.log(userList)
     })
   

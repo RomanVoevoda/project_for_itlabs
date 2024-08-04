@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import classes from './App.module.scss';
 import { Footer, Header, Main } from '@/widgets';
-import { userList } from '@/shared/consts';
+import { userInfo, userList } from '@/shared/consts';
 import { CountContext } from '@/shared/lib';
 
 const App: FC = () => {
@@ -12,9 +12,13 @@ const App: FC = () => {
   })
 
   const [count, setCount] = useState<number>(0);
+  const [renderedUsers, setRenderedUsers] = useState<userInfo[]>(userList);
+
   const context = {
-    count: count,
-    setCount
+    count,
+    setCount,
+    renderedUsers,
+    setRenderedUsers
   }
 
   return (

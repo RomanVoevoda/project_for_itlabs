@@ -2,18 +2,15 @@ import { FC, Fragment, useEffect, useState } from 'react';
 import classes from './Main.module.scss';
 import { mainTableHeaders } from '../consts/mainTableHeaders';
 import { StatusSpan } from '@/shared/ui';
-import { userInfo, userList } from '@/shared/consts';
 import { useCountContext } from '@/shared/lib';
 
 const Main: FC = () => {
-  const {count} = useCountContext();
-  
-  const [users, setUsers] = useState<userInfo[]>(userList);
+  const {renderedUsers, setRenderedUsers} = useCountContext();
 
   useEffect(() => {
     console.log('список отрендерился');
-    setUsers(userList);
-  }, [count])
+    setRenderedUsers(renderedUsers);
+  }, [renderedUsers])
 
   return (
     <main className={classes.main}>
@@ -32,7 +29,7 @@ const Main: FC = () => {
         </div>
       )}
 
-      {users.map((user, index) =>
+      {renderedUsers.map((user, index) =>
         <Fragment key={index}>
           <p className={classes.main__cell_text}>
             {index + 1}
