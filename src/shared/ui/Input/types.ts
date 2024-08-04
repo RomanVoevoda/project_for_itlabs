@@ -7,4 +7,5 @@ interface Props {
   size: 'normal' | 'large';
   max_length: number;
   placeholder: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

@@ -4,12 +4,12 @@ import TextInput from './TextInput/TextInput';
 import CheckboxInput from './CheckboxInput/CheckboxInput';
 
 
-const Input: FC<InputProps> = ({type, size, placeholder, max_length}) => {
+const Input: FC<InputProps> = ({type, size, placeholder, max_length, onChange}) => {
   switch(type) {
     case 'text':
-      return <TextInput size={size} placeholder={placeholder} max_length={max_length}/>
+      return <TextInput size={size} placeholder={placeholder} max_length={max_length} onChange={onChange}/>
     case 'checkbox':
-      return <CheckboxInput />
+      return <CheckboxInput onChange={onChange}/>
     default:
       return null;
   }

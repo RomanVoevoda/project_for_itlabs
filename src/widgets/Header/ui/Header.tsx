@@ -1,16 +1,18 @@
-import { FC, useEffect, useState } from 'react';
+import { FC, useCallback, useEffect, useState } from 'react';
 import classes from './Header.module.scss';
 import { Button, Input, Modal } from '@/shared/ui';
 import { CreateUserForm } from '@/features';
 import { useUsersContext } from '@/shared/lib';
 import { filterArray } from '@/shared/lib/helpers/filterArray';
 import { userList } from '@/shared/consts';
+import { useSearchUsers } from '@/features/SearchUsers/lib/hooks/useSearchUsers';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [onlineCount, setOnlineCount] = useState(0);
   const [offlineCount, setOfflineCount] = useState(0);
-  const {renderedUsers} = useUsersContext();
+  const {renderedUsers, setRenderedUsers} = useUsersContext();
+  const searchUsers = useSearchUsers(setRenderedUsers, userList, 'name');
 
   useEffect(() => {
     let online = filterArray(userList, 'online', true);
@@ -19,6 +21,10 @@ const Header: FC = () => {
     setOnlineCount(online.length);
     setOfflineCount(offline.length);
   }, [renderedUsers]);
+
+  const inputHandler = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    searchUsers(e.target.value);
+  }, [searchUsers]);
 
   return (
     <header className={classes.header}>
@@ -33,6 +39,7 @@ const Header: FC = () => {
           type='text' 
           placeholder='Поиск по имени' 
           size='normal'
+          onChange={inputHandler}
         />
       </div>
 
