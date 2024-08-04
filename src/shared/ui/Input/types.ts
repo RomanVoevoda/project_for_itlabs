@@ -3,7 +3,8 @@ export interface InputProps extends Partial<Props> {
 }
 
 interface Props {
-  title?: string;
+  name: string;
+  id: string;
   size: 'normal' | 'large';
   max_length: number;
   placeholder: string;

@@ -1,24 +1,36 @@
 import { userInfo } from "@/shared/consts";
 import { userList } from "@/shared/consts";
+import { serializeForm } from "@/shared/lib";
 
-export function createUser(formFieldsContainerId: string) {
-  const formFields = document.querySelectorAll(`#${formFieldsContainerId} > *:not(p)`);
+export function createUser(eventTarget: HTMLFormElement) {
+  const formFields = serializeForm(eventTarget);
 
   const result: userInfo = {
-    name: (formFields[0] as HTMLInputElement).value 
-          ? (formFields[0] as HTMLInputElement).value 
-          : 'Зубенко Михаил Петрович',
-
-    company: (formFields[1] as HTMLInputElement).value 
-             ? (formFields[1] as HTMLInputElement).value 
-             : 'ООО "АСОЛЬ"',
-
-    group: (formFields[2] as HTMLSelectElement).options[(formFields[2] as HTMLSelectElement).selectedIndex].value
-           ? (formFields[2] as HTMLSelectElement).options[(formFields[2] as HTMLSelectElement).selectedIndex].value
-           : 'Прохожий',
-
-    online: formFields[3] ? (formFields[3] as HTMLInputElement).checked : false,
+    name: 'Зубенко Михаил Петрович',
+    company: 'ООО"АСОЛЬ"',
+    group: 'Прохожий',
+    online: false
   };
+
+  formFields.forEach(field => {
+    console.log(field.name)
+    console.log(field.value)
+    if(typeof field.value === 'boolean') {
+      result.online = field.value;
+    } else {
+      switch(field.name) {
+        case 'ФИО':
+          if(field.value) result.name = field.value;
+          break;
+        case 'Компания':
+          if(field.value) result.company = field.value;
+          break;
+        case 'Группа':
+          if(field.value) result.group = field.value;
+          break;
+      }
+    }
+  });
 
   userList.push(result);
   return result;

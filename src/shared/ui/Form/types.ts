@@ -4,7 +4,5 @@ export interface FormProps {
   fields: ReactNode[];
   buttons: ReactNode[];
   icon: ReactNode;
-  id: string;
-  fieldsContainerId: string;
-  onSubmit: () => void;
+  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
 }

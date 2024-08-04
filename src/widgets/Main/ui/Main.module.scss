@@ -41,6 +41,16 @@
     }
   }
 
+  &__content_block {
+    display: contents;
+
+    @media(hover:hover) {
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+
   &__cell_text {
     margin: 1.5rem 0;
     max-height: 2rem;

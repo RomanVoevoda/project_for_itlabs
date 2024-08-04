@@ -2,10 +2,12 @@ import { FC } from 'react';
 import classes from './Select.module.scss';
 import { SelectProps } from './types';
 
-const Select: FC<SelectProps> = ({default_option, options}) => {
+const Select: FC<SelectProps> = ({default_option, options, name, id}) => {
   return (
     <select 
       className={classes.select}
+      name={name}
+      id={id}
     >
       <option 
         value=""

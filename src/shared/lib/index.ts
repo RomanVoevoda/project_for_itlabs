@@ -5,3 +5,4 @@ export { useFilter } from './hooks/useFilter/useFilter';
 export { useDebounce } from './hooks/useDebounce/useDebounce';
 export { searchInArray } from './helpers/searchInArray';
 export { filterArray } from './helpers/filterArray';
+export { serializeForm } from './helpers/serializeForm';

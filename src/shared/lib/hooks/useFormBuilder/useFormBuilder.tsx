@@ -16,37 +16,39 @@ export const useFormBuilder = () => {
     } as FormProps);
 
   const builder = {
-    setInput: (type: 'text' | 'checkbox', size?: 'normal' | 'large', max_length?: number, title?: string ) => {
-      if(title) props.current.fields.push(
-        <p>
-          {title}
-        </p>
+    setInput: (type: 'text' | 'checkbox', name: string, id: string, size?: 'normal' | 'large', max_length?: number) => {
+      props.current.fields.push(
+        <label htmlFor={id}>
+          {name}
+        </label>
       )
 
       props.current.fields.push(
         <Input 
-          title={title}
           type={type}
           size={size}
           max_length={max_length}
+          name={name}
+          id={id}
         />
       );
 
       return builder;
     },
 
-    setSelect: (options: string[], default_option: string, title?: string) => {
-      if(title) props.current.fields.push(
-        <p>
-          {title}
-        </p>
+    setSelect: (options: string[], default_option: string, name: string, id: string) => {
+      props.current.fields.push(
+        <label htmlFor={id}>
+          {name}
+        </label>
       )
 
       props.current.fields.push(
         <Select 
           options={options}
           default_option={default_option}
-          title={title}
+          name={name}
+          id={id}
         />
       );
 
@@ -82,10 +84,8 @@ export const useFormBuilder = () => {
       return builder;
     },
 
-    setForm: (id: string, fieldsContainerId: string, onSubmit: () => void) => {
-      props.current.id = id;
+    setForm: (onSubmit: (e: React.FormEvent<HTMLFormElement>) => void) => {
       props.current.onSubmit = onSubmit;
-      props.current.fieldsContainerId = fieldsContainerId;
 
       return builder;
     },
@@ -96,7 +96,6 @@ export const useFormBuilder = () => {
       props.current.fields = [];
       props.current.buttons = [];
       props.current.icon = null;
-      props.current.id = '';
       props.current.onSubmit = () => {};
     }
   }

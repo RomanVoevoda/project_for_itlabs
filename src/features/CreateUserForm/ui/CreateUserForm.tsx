@@ -4,20 +4,20 @@ import { CreateUserFormProps } from './types';
 import { createUser } from '../lib/helpers/createUser';
 import { userList } from '@/shared/consts';
 
-const CreateUserForm: FC<CreateUserFormProps> = ({closeForm, formId, formFieldsContainerId}) => {
+const CreateUserForm: FC<CreateUserFormProps> = ({closeForm}) => {
   const {renderedUsers, setRenderedUsers} = useUsersContext();
 
   const builder = useFormBuilder()
-    .setInput('text', 'large', 20, 'ФИО')
-    .setInput('text', 'large', 20, 'Компания')
-    .setSelect(['Прохожий', 'Клиент', 'Партнер'], 'Выбрать', 'Группа')
-    .setInput('checkbox', undefined, undefined, 'Присутствие')
+    .setInput('text', 'ФИО', 'ФИО', 'large', 20)
+    .setInput('text', 'Компания', 'Компания',  'large', 20)
+    .setSelect(['Прохожий', 'Клиент', 'Партнер'], 'Выбрать', 'Группа', 'Группа')
+    .setInput('checkbox', 'Присутствие', 'Присутствие', undefined, undefined)
     .setButton('Добавить', 'primary', () => '', 'green', undefined, true)
     .setButton('Закрыть', 'primary', closeForm, 'gray', undefined, false)
     .setClosingIcon('x-mark', closeForm)
-    .setForm(formId, formFieldsContainerId, () => {
+    .setForm((e: React.FormEvent<HTMLFormElement>) => {
       closeForm()
-      let user = createUser(formFieldsContainerId);
+      let user = createUser(e.currentTarget);
 
       switch(localStorage.getItem('filter')) {
         case 'Присутствующим':

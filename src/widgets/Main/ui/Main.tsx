@@ -30,7 +30,9 @@ const Main: FC = () => {
       )}
 
       {renderedUsers.map((user, index) =>
-        <Fragment key={index}>
+        <div key={index} 
+          className={classes.main__content_block}
+        >
           <p className={classes.main__cell_text}>
             {index + 1}
           </p> 
@@ -51,7 +53,7 @@ const Main: FC = () => {
               <StatusSpan type='red'/>
             }
           </p>
-        </Fragment>
+        </div>
       )}
     </main>
   );
