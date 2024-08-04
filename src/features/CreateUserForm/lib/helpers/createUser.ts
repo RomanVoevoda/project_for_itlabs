@@ -1,7 +1,7 @@
 import { userInfo } from "@/shared/consts";
 import { userList } from "@/shared/consts";
 
-export function createVisitor(formFieldsContainerId: string) {
+export function createUser(formFieldsContainerId: string) {
   const formFields = document.querySelectorAll(`#${formFieldsContainerId} > *:not(p)`);
 
   const result: userInfo = {
@@ -21,4 +21,5 @@ export function createVisitor(formFieldsContainerId: string) {
   };
 
   userList.push(result);
+  return result;
 }

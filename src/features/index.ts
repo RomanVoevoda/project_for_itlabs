@@ -1,1 +1,1 @@
-export { CreateVisitorForm } from './CreateVisitorForm';
+export { CreateUserForm } from './CreateUserForm';

@@ -1,11 +1,11 @@
-import { useCountContext, useFormBuilder } from '@/shared/lib';
+import { useFormBuilder, useUsersContext } from '@/shared/lib';
 import { FC } from 'react';
-import { CreateVisitorFormProps } from './types';
-import { createVisitor } from '../lib/helpers/createVisitor';
+import { CreateUserFormProps } from './types';
+import { createUser } from '../lib/helpers/createUser';
 import { userList } from '@/shared/consts';
 
-const CreateVisitorForm: FC<CreateVisitorFormProps> = ({closeForm, formId, formFieldsContainerId}) => {
-  const {renderedUsers, setRenderedUsers} = useCountContext();
+const CreateUserForm: FC<CreateUserFormProps> = ({closeForm, formId, formFieldsContainerId}) => {
+  const {renderedUsers, setRenderedUsers} = useUsersContext();
 
   const builder = useFormBuilder()
     .setInput('text', 'large', 20, 'ФИО')
@@ -17,8 +17,8 @@ const CreateVisitorForm: FC<CreateVisitorFormProps> = ({closeForm, formId, formF
     .setClosingIcon('x-mark', closeForm)
     .setForm(formId, formFieldsContainerId, () => {
       closeForm()
-      createVisitor(formFieldsContainerId);
-      setRenderedUsers(renderedUsers)
+      let user = createUser(formFieldsContainerId);
+      setRenderedUsers([...renderedUsers, user]);
       console.log(userList)
     })
   
@@ -30,4 +30,4 @@ const CreateVisitorForm: FC<CreateVisitorFormProps> = ({closeForm, formId, formF
   );
 };
 
-export default CreateVisitorForm;
+export default CreateUserForm;

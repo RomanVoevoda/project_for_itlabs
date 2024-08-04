@@ -1,5 +1,6 @@
 .main {
-  min-height: calc(100dvh - 11.1rem);
+  min-height: calc(100dvh - 12.3rem);
+  max-height: calc(100dvh - 12.3rem);
   min-width: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
@@ -9,12 +10,9 @@
 
   font-size: var(--big-font-size);
   font-family: "OpenSansRegular";
-
-  scrollbar-color: transparent transparent;
-  scrollbar-width: none !important;
   
   &::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.3rem;
   }
 
   &::-webkit-scrollbar-track {
@@ -22,9 +20,9 @@
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: var(--gray-border-color);
+    background-color: var(--border-color);
     border-radius: 50%; 
-    border: 3px solid var(--gray-border-color); 
+    border: 3px solid var(--border-color); 
   }
   
   &__header_text {

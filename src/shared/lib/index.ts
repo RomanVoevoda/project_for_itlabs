@@ -1,4 +1,4 @@
 export { useFormBuilder } from './hooks/useFormBuilder/useFormBuilder';
-export { CountContext } from './hooks/CountContext/CountContext';
-export { useCountContext } from './hooks/CountContext/useCountContext';
+export { UsersContext } from './hooks/UsersContext/UsersContext';
+export { useUsersContext } from './hooks/UsersContext/useUsersContext';
 export { useFilter } from './hooks/useFilter/useFilter';

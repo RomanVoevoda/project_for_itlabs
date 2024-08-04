@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   height: 2.6rem;
+  padding: 0.75rem 0;
   box-shadow: var(--input-box-shadow);
   border: none;
   border-radius: 0.2rem;
@@ -20,7 +21,7 @@
   &::placeholder {
     height: 100%;
     display: flex;
-    align-items: center;
+    vertical-align: middle;
     color: var(--gray-font-color);
     font-size: var(--extra-small-font-size);   
   }

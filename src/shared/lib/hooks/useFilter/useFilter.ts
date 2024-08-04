@@ -1,10 +1,10 @@
 import { useEffect } from "react";
-import { useCountContext } from "../CountContext/useCountContext";
 import { filterArray } from "../../helpers/filterArray";
 import { userInfo } from "@/shared/consts";
+import { useUsersContext } from "../UsersContext/useUsersContext";
 
 export const useFilter = (arr: userInfo[], property: keyof userInfo, filter: any) => {
-  const {count, setCount, setRenderedUsers} = useCountContext()
+  const {setRenderedUsers} = useUsersContext()
   
   useEffect(() =>{
     const filteredArr = filterArray(arr, property, filter)

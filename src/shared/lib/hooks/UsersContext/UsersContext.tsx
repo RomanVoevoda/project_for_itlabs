@@ -1,4 +1,4 @@
 import { createContext } from "react";
 import { IContext } from "./types";
 
-export const CountContext = createContext<IContext | undefined>(undefined);
+export const UsersContext = createContext<IContext | undefined>(undefined);

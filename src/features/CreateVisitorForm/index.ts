@@ -1,1 +1,0 @@
-export { default as CreateVisitorForm } from './ui/CreateVisitorForm';

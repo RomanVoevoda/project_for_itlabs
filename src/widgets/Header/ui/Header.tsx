@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import classes from './Header.module.scss';
 import { Button, Input, Modal } from '@/shared/ui';
-import { CreateVisitorForm } from '@/features';
+import { CreateUserForm } from '@/features';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -34,7 +34,7 @@ const Header: FC = () => {
 
       {isModalOpen &&
         <Modal>
-          <CreateVisitorForm
+          <CreateUserForm
             closeForm={() => setIsModalOpen(false)}
             formId={'form__create_visitor'}
             formFieldsContainerId={'form__create_visitor_container'}

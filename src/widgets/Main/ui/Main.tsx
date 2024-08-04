@@ -2,10 +2,10 @@ import { FC, Fragment, useEffect, useState } from 'react';
 import classes from './Main.module.scss';
 import { mainTableHeaders } from '../consts/mainTableHeaders';
 import { StatusSpan } from '@/shared/ui';
-import { useCountContext } from '@/shared/lib';
+import { useUsersContext } from '@/shared/lib';
 
 const Main: FC = () => {
-  const {renderedUsers, setRenderedUsers} = useCountContext();
+  const {renderedUsers, setRenderedUsers} = useUsersContext();
 
   useEffect(() => {
     console.log('список отрендерился');
