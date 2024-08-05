@@ -16,7 +16,7 @@ export const useFormBuilder = () => {
     } as FormProps);
 
   const builder = {
-    setInput: (type: 'text' | 'checkbox', name: string, id: string, size?: 'normal' | 'large', max_length?: number) => {
+    setInput: (type: 'text' | 'checkbox', name: string, id: string, size?: 'normal' | 'large', max_length?: number, value?: string | boolean) => {
       props.current.fields.push(
         <label htmlFor={id}>
           {name}
@@ -30,6 +30,7 @@ export const useFormBuilder = () => {
           max_length={max_length}
           name={name}
           id={id}
+          value={value}
         />
       );
 

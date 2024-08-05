@@ -1,5 +1,7 @@
 export interface CreateUserFormProps {
   closeForm: () => void;
-  formId: string;
-  formFieldsContainerId: string;
+  submitForm: (e: React.FormEvent<HTMLFormElement>) => void;
+  values: FormValuesTuple;
 }
+
+export type FormValuesTuple = [string, string, string, boolean];

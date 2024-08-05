@@ -9,4 +9,5 @@ interface Props {
   max_length: number;
   placeholder: string;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  value: string | boolean;
 }

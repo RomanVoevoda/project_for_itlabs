@@ -7,6 +7,7 @@ import { UsersContext } from '@/shared/lib';
 const App: FC = () => {
   console.log('rendderapp')
 
+
   window.addEventListener('beforeunload', () => {
     localStorage.setItem('users', JSON.stringify(userList))
   })

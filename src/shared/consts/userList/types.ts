@@ -3,5 +3,6 @@ export interface userInfo {
   company: string;
   group: string;
   online: boolean;
+  id: number;
   filterOff?: undefined;
 }

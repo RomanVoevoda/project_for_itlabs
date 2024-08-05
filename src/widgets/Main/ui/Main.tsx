@@ -1,10 +1,16 @@
 import { FC, Fragment, useEffect, useState } from 'react';
 import classes from './Main.module.scss';
 import { mainTableHeaders } from '../consts/mainTableHeaders';
-import { StatusSpan } from '@/shared/ui';
+import { Modal, StatusSpan } from '@/shared/ui';
 import { useUsersContext } from '@/shared/lib';
+import { CreateUserForm } from '@/features';
+import { deleteOldUser, FormValuesTuple, renderNewUser } from '@/features/CreateUserForm';
 
 const Main: FC = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [currentUserId, setCurrentUserId] = useState(0);
+  const [formValues, setFormValues] = useState<FormValuesTuple>(['', '', 'Выбрать', false]);
+
   const {renderedUsers, setRenderedUsers} = useUsersContext();
 
   useEffect(() => {
@@ -30,8 +36,13 @@ const Main: FC = () => {
       )}
 
       {renderedUsers.map((user, index) =>
-        <div key={index} 
+        <div key={user.id} 
           className={classes.main__content_block}
+          onClick={() => {
+            setCurrentUserId(user.id);
+            setFormValues([user.name, user.company, user.group, user.online]);
+            setIsModalOpen(true);
+          }}
         >
           <p className={classes.main__cell_text}>
             {index + 1}
@@ -55,6 +66,19 @@ const Main: FC = () => {
           </p>
         </div>
       )}
+
+      {isModalOpen &&
+        <Modal>
+          <CreateUserForm 
+            closeForm={() => setIsModalOpen(false)}
+            submitForm={(e) => {
+              deleteOldUser(currentUserId, renderedUsers, setRenderedUsers);
+              renderNewUser(e, renderedUsers, setRenderedUsers, currentUserId);
+            }}
+            values={formValues}
+          />
+        </Modal>
+      }
     </main>
   );
 };

@@ -6,6 +6,7 @@ import { useUsersContext } from '@/shared/lib';
 import { filterArray } from '@/shared/lib/helpers/filterArray';
 import { userList } from '@/shared/consts';
 import { useSearchUsers } from '@/features/SearchUsers/lib/hooks/useSearchUsers';
+import { renderNewUser } from '@/features/CreateUserForm';
 
 const Header: FC = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -72,8 +73,8 @@ const Header: FC = () => {
         <Modal>
           <CreateUserForm
             closeForm={() => setIsModalOpen(false)}
-            formId={'form__create_visitor'}
-            formFieldsContainerId={'form__create_visitor_container'}
+            submitForm={(e) => renderNewUser(e, renderedUsers, setRenderedUsers)}
+            values={['','','Выбрать', false]}
           />
         </Modal>
       }

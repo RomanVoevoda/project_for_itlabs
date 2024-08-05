@@ -2,7 +2,7 @@ import { FC } from 'react';
 import { InputProps } from '../types';
 import classes from './TextInput.module.scss';
 
-const TextInput: FC<Omit<InputProps, 'type'>> = ({size, max_length, placeholder, onChange, name, id}) => {
+const TextInput: FC<Omit<InputProps, 'type'>> = ({size, max_length, placeholder, onChange, name, id, value}) => {
   switch(size) {
     case 'large':
       return <input 
@@ -12,6 +12,7 @@ const TextInput: FC<Omit<InputProps, 'type'>> = ({size, max_length, placeholder,
               onChange={onChange}
               name={name}
               id={id}
+              defaultValue={typeof value === 'string' ? value : ''}
               className={
                 classes.input 
                 + 
@@ -28,6 +29,7 @@ const TextInput: FC<Omit<InputProps, 'type'>> = ({size, max_length, placeholder,
               onChange={onChange}
               name={name}
               id={id}
+              defaultValue={typeof value === 'string' ? value : ''}
               className={
                 classes.input 
                 + 
